@@ -1,0 +1,15 @@
+Pour la prochaine version Calculatrice V1.2 :
+
+BUGS :
+- problème du signe égale, exemple, si on saisit "6" puis "=" puis "6", l'affichage est : "66=66" -> implémenter un reset après affichage
+- problème on peut saisir plusieurs fois un opérateur et après impossible de calculer -> Empêcher la saisie de plusieurs opérateurs ou afficher un message d'erreur.
+- on saisit "500*15/100" on obtient : "0.0" ???
+
+
+A FAIRE :
+- Améliorer l'interface graphique
+- Empêcher le redimentionnement de la fenêtre
+- Implémenter les opérateurs unaires (par ex : -5)
+SI POSSIBLE :
+- Ajouter "%", racine carré, carré, "(", ")"
+
