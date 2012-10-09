@@ -7,9 +7,11 @@ BUGS :
 
 
 A FAIRE :
+- Ajout d'un menu
 - Améliorer l'interface graphique
 - Empêcher le redimentionnement de la fenêtre
 - Implémenter les opérateurs unaires (par ex : -5)
 SI POSSIBLE :
 - Ajouter "%", racine carré, carré, "(", ")"
+- Ajouter une fonction Fraction pour les calculs sur les fractions
 
