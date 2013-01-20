@@ -2,18 +2,23 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.TextListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import test_calculatrice.Calcul;
 
 public class FenetreCalc extends JFrame {
 
-	private Interaction inter = new Interaction(this); // Passe au contructeur Interface une référence à elle-même
+	private Interaction inter = new Interaction(this); // Passe au contructeur Interaction une référence à elle-même
+
 	// CREATION DES BOUTONS
 			JButton bouton1 = new JButton("1");
 			JButton bouton2 = new JButton("2");
@@ -31,9 +36,9 @@ public class FenetreCalc extends JFrame {
 			JButton boutonAd = new JButton("+");
 			JButton boutonSo = new JButton("-");
 			JButton boutonMu = new JButton("*");
-			JButton boutonDi = new JButton("/");
+			JButton boutonDi = new JButton("÷");
 			// CREATION DU LABEL POUR L'AFFICHAGE DU RESULTAT
-			JLabel text = new JLabel("Bienvenu");
+			JTextField text = new JTextField("Bienvenue");
 	
 	public FenetreCalc(){
 		
@@ -47,8 +52,8 @@ public class FenetreCalc extends JFrame {
 		// TRAVAIL SUR LE LABEL
 		Font police = new Font("Arial", Font.PLAIN, 20);
 		text.setFont(police);
-		text.setHorizontalAlignment(JLabel.RIGHT); // aligner l'affichage à droite
-		text.setVerticalAlignment(JLabel.CENTER); // aligner horizontalement l'affichage au centre
+		text.setHorizontalAlignment(JTextField.RIGHT); // aligner l'affichage à droite
+//		text.setVerticalAlignment(JTextField.CENTER); // aligner horizontalement l'affichage au centre
 		text.setPreferredSize(new Dimension(260,40)); // Changer la taille du Label
 		
 		// POSITION DES BOUTONS ET DU LABEL
@@ -99,6 +104,7 @@ public class FenetreCalc extends JFrame {
 		this.setContentPane(panPrincipal);
 		
 		this.pack();
+		this.setResizable(false); // empêche le redimensionnement
 		this.setVisible(true);
 		
 		// AJOUT DES ECOUTEURS DE TYPE INTERACTION
@@ -119,8 +125,27 @@ public class FenetreCalc extends JFrame {
 		boutonSo.addActionListener(inter);
 		boutonMu.addActionListener(inter);
 		boutonDi.addActionListener(inter);
+		text.addActionListener(new TextListener());
 		
 	} // fin constructeur défaut
+	
+	
+/**
+ * Class interne TextListener	
+ * @author mabelle
+ * Récupère la saisie dans le TextField puis calcule
+ */
+public class TextListener implements ActionListener{
+		
+		
+		public void actionPerformed(ActionEvent e) {
+			Double result = 0.0;
+			Calcul calculette = new Calcul(text.getText());
+			result = calculette.resultat();
+			text.setText(result.toString());
+			
+		}
+	}
 	
 	
 } // FIN CLASSE FENETRECALC
