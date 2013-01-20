@@ -84,7 +84,15 @@ public class Interaction implements ActionListener {
 //			calc.text.setText(text);
 			Calcul calculette = new Calcul(text);
 			result = calculette.resultat();
-			calc.text.setText(result.toString());
+			
+			if(result == 0.0) { // pour régler le bug du signe "="
+				text = "";
+				calc.text.setText(result.toString()) ;
+			}
+			else{
+			text = result.toString() ;
+			calc.text.setText(text);
+			}
 		}
 		if (boutons.getSource() == calc.boutonReset) {
 			text = "";
