@@ -10,6 +10,7 @@ import java.awt.event.TextListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -19,6 +20,9 @@ public class FenetreCalc extends JFrame {
 
 	private Interaction inter = new Interaction(this); // Passe au contructeur Interaction une référence à elle-même
 
+	// BOITE DE DIALOGUE WARNINGS
+	JOptionPane boiteDialogue = new JOptionPane() ;
+	
 	// CREATION DES BOUTONS
 	JButton bouton1 = new JButton("1");
 	JButton bouton2 = new JButton("2");

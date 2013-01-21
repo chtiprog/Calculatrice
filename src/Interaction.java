@@ -3,6 +3,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import test_calculatrice.Calcul;
 
 public class Interaction implements ActionListener {
@@ -119,7 +121,11 @@ public class Interaction implements ActionListener {
 					|| (saisie.charAt(i)) == '*' || (saisie.charAt(i)) == '/'
 					|| (saisie.charAt(i)) == '.' ){
 				count++ ;
-				if(count == 2) saisie = saisie.substring(0, i) ;
+				if(count == 2) {
+					saisie = saisie.substring(0, i) ;
+					calc.boiteDialogue.showMessageDialog(null, "Attention operateurs saisis deux fois !", "Erreur", JOptionPane.ERROR_MESSAGE) ;
+				}
+				
 				// DEBUG
 				/*System.out.println("je suis dans le if de la fonction operateursDoublon") ;
 				System.out.println("saisie == " + saisie) ;*/
