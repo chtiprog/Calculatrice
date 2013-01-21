@@ -20,51 +20,50 @@ public class FenetreCalc extends JFrame {
 	private Interaction inter = new Interaction(this); // Passe au contructeur Interaction une référence à elle-même
 
 	// CREATION DES BOUTONS
-			JButton bouton1 = new JButton("1");
-			JButton bouton2 = new JButton("2");
-			JButton bouton3 = new JButton("3");
-			JButton bouton4 = new JButton("4");
-			JButton bouton5 = new JButton("5");
-			JButton bouton6 = new JButton("6");
-			JButton bouton7 = new JButton("7");
-			JButton bouton8 = new JButton("8");
-			JButton bouton9 = new JButton("9");
-			JButton bouton0 = new JButton("0");
-			JButton boutonPt = new JButton(".");
-			JButton boutonEgal = new JButton("=");
-			JButton boutonReset = new JButton("C");
-			JButton boutonAd = new JButton("+");
-			JButton boutonSo = new JButton("-");
-			JButton boutonMu = new JButton("*");
-			JButton boutonDi = new JButton("÷");
-			// CREATION DU LABEL POUR L'AFFICHAGE DU RESULTAT
-			JTextField text = new JTextField("Bienvenue");
-	
+	JButton bouton1 = new JButton("1");
+	JButton bouton2 = new JButton("2");
+	JButton bouton3 = new JButton("3");
+	JButton bouton4 = new JButton("4");
+	JButton bouton5 = new JButton("5");
+	JButton bouton6 = new JButton("6");
+	JButton bouton7 = new JButton("7");
+	JButton bouton8 = new JButton("8");
+	JButton bouton9 = new JButton("9");
+	JButton bouton0 = new JButton("0");
+	JButton boutonPt = new JButton(".");
+	JButton boutonEgal = new JButton("=");
+	JButton boutonReset = new JButton("C");
+	JButton boutonAd = new JButton("+");
+	JButton boutonSo = new JButton("-");
+	JButton boutonMu = new JButton("*");
+	JButton boutonDi = new JButton("÷");
+	// CREATION DU LABEL POUR L'AFFICHAGE DU RESULTAT
+	JTextField text = new JTextField("Bienvenue");
+
 	public FenetreCalc(){
-		
+
 		this.setTitle("Calculatrice");
-//		this.setSize(200, 400);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		boutonReset.setBackground(Color.red); // Colorer le bouton reset en rouge
-		
+
 		// TRAVAIL SUR LE LABEL
 		Font police = new Font("Arial", Font.PLAIN, 20);
 		text.setFont(police);
 		text.setHorizontalAlignment(JTextField.RIGHT); // aligner l'affichage à droite
-//		text.setVerticalAlignment(JTextField.CENTER); // aligner horizontalement l'affichage au centre
+		//		text.setVerticalAlignment(JTextField.CENTER); // aligner horizontalement l'affichage au centre
 		text.setPreferredSize(new Dimension(260,40)); // Changer la taille du Label
-		
+
 		// POSITION DES BOUTONS ET DU LABEL
-				// Panneau pour le label
+		// Panneau pour le label
 		JPanel panText = new JPanel();
 		panText.setBackground(Color.WHITE);
 		panText.setBorder(BorderFactory.createLineBorder(Color.darkGray)); // Ajoute une bordure au cadre du text
 		panText.setPreferredSize(new Dimension(270,60)); // Taille du panneau du Label, un peu plus grand
 		panText.add(text);
-		
-				// Panneau pour les boutons numéros
+
+		// Panneau pour les boutons numéros
 		JPanel panB1 = new JPanel();
 		panB1.setPreferredSize(new Dimension(190,210));
 		panB1.setLayout(new GridLayout(4,3,3,3));
@@ -80,8 +79,8 @@ public class FenetreCalc extends JFrame {
 		panB1.add(bouton0);
 		panB1.add(boutonPt);
 		panB1.add(boutonEgal);
-		
-				// Panneau pour les boutons opérateurs
+
+		// Panneau pour les boutons opérateurs
 		JPanel panBOp = new JPanel();
 		panBOp.setPreferredSize(new Dimension(60,210));
 		panBOp.setLayout(new GridLayout(5,1,3,3));
@@ -90,8 +89,8 @@ public class FenetreCalc extends JFrame {
 		panBOp.add(boutonSo);
 		panBOp.add(boutonMu);
 		panBOp.add(boutonDi);
-		
-		
+
+
 		// AJOUTS DES PANNEAUX AU PANNEAU PRINCIPAL
 		JPanel panPrincipal = new JPanel();
 		panPrincipal.setLayout(new BorderLayout());
@@ -99,14 +98,14 @@ public class FenetreCalc extends JFrame {
 		panPrincipal.add(panB1, BorderLayout.CENTER);
 		panPrincipal.add(panBOp, BorderLayout.EAST);
 
-		
-		
+
+
 		this.setContentPane(panPrincipal);
-		
+
 		this.pack();
 		this.setResizable(false); // empêche le redimensionnement
 		this.setVisible(true);
-		
+
 		// AJOUT DES ECOUTEURS DE TYPE INTERACTION
 		bouton1.addActionListener(inter);
 		bouton2.addActionListener(inter);
@@ -126,26 +125,27 @@ public class FenetreCalc extends JFrame {
 		boutonMu.addActionListener(inter);
 		boutonDi.addActionListener(inter);
 		text.addActionListener(new TextListener());
-		
+
 	} // fin constructeur défaut
-	
-	
-/**
- * Class interne TextListener	
- * @author mabelle
- * Récupère la saisie dans le TextField puis calcule
- */
-public class TextListener implements ActionListener{
-		
-		
+
+
+	/**
+	 * Class interne TextListener	
+	 * @author mabelle
+	 * Récupère la saisie dans le TextField puis calcule
+	 */
+	public class TextListener implements ActionListener{
+
+
 		public void actionPerformed(ActionEvent e) {
-			Double result = 0.0;
+			/*			Double result = 0.0;
 			Calcul calculette = new Calcul(text.getText());
 			result = calculette.resultat();
-			text.setText(result.toString());
-			
+			text.setText(result.toString());*/
+
 		}
-	}
-	
-	
+
+	}		
+
+
 } // FIN CLASSE FENETRECALC
